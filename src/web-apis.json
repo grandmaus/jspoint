@@ -1,0 +1,341 @@
+[
+  {
+    "title": "One stack to rule them all 👑️",
+    "note": "greet the audience, introduce yourself, set the theme of the talk"
+  },
+  {
+    "title": "Disclaimer: a lot of 🍟🍔🗽 ahead",
+    "note": "Tell about heavy english usage during the talk",
+    "alias": "second"
+  },
+  {
+    "title": "@miniq_bot",
+    "note":
+      "tell that there is a bot that can be used to send messages to the presenter during the talk"
+  },
+  {
+    "title": "Software engineer at EPAM 🤵",
+    "note": "tell that you're working at EPAM"
+  },
+  {
+    "title": "js development 💛",
+    "note": "tell that you spend most of your coding time with JS"
+  },
+  {
+    "title": "vim enthusiast 🤓",
+    "note":
+      "Speak little bit about what vim is!!! Tell that you use vim on everyday basis for 2 years now;\nRaise hands: who uses vim?\n tell that is seems to be a good place to start local vim community"
+  },
+  {
+    "title": "In the beginning, there was an idea 💡",
+    "note": "Tell that everything started as an attempt to do a talk on vim productivity"
+  },
+  {
+    "title": "vim needs to be advertised heavily in order to be sold",
+    "note":
+      "tell that the main focus on doing entry-level vim talk is that its crucial for the audience to see presenters hands and the code that hes working with"
+  },
+  {
+    "image": "powerpoint.png",
+    "note":
+      "tell that in our current mindset we're kind of stuck with PowerPoint. PP is great, But there is a time when it's capabilities aren't enough anymore"
+  },
+  {
+    "image": "powerpoint-webcam.png",
+    "note": "tell that while it is possible to embed webcam into powerpoint ",
+    "imageScale": 2
+  },
+  {
+    "image": "powerpoint-code-editor.png",
+    "note": "its impossible to integrate a code editor / start talking on cross-platform and OSS",
+    "imageScale": 2
+  },
+  {
+    "image": "tux.png",
+    "note": "neither cross-platform"
+  },
+  {
+    "image": "octocat.png",
+    "note": "neither nor free/open-source / start talking on choice making"
+  },
+  {
+    "image": "choice.jpg",
+    "imageScale": 1.3,
+    "note":
+      "choice between alt+tab and creating a new app / begin speaking on start of development of new powerpoint contest"
+  },
+  {
+    "image": "Bill-Gates.jpg",
+    "imageScale": 1.4,
+    "note": "just show crying BG"
+  },
+  {
+    "title": "so, you need a webcam on the web",
+    "note": "start speaking on HTML5 capabilities regarding MediaDevices"
+  },
+  {
+    "title": "its not hard",
+    "note": "tell about webcam implementation being not hard"
+  },
+
+  {
+    "title": "navigator.mediaDevices.enumerateDevices();",
+    "note": "we need to get list of all available media devices"
+  },
+  {
+    "title": "devices.filter(d => d.kind === 'videoinput');",
+    "note": "then we need to find video inputs"
+  },
+  {
+    "title": "getVideoStream(streamOptions).then(stream => {...",
+    "note": "receive video stream"
+  },
+
+  {
+    "title": "this.videoFrame.srcObject = stream;",
+    "note": "and attach it to video DOM node"
+  },
+  {
+    "title": "ez",
+    "note": "SHOW CAMERA HERE!!!! webcam support is done. but what about code editing?"
+  },
+  {
+    "image": "codemirror-logo.png",
+    "note": "codemirror image"
+  },
+  {
+    "title": "<div id='codemirror' onKeyUp={this.handleKeyUp} />",
+    "note": "we are going to need a node"
+  },
+  {
+    "title": "define a keymap / initial code",
+    "note": "tell about initial setup for codemirror"
+  },
+  {
+    "title": "rule #1: never take color theme choosing lightly",
+    "note": "tell about color theme being the most viable part of the text editor"
+  },
+  {
+    "title": "lets look at our text editor",
+    "note": "say this words and !!!turn on the text editor!!!"
+  },
+  {
+    "image": "but-can-you-do-this.gif",
+    "note": "i wanted to compare what i have already with PowerPoint",
+    "imageScale": 2.4
+  },
+  {
+    "title": "pp: i'm not impressed",
+    "note":
+      "tell about that the current state of UI was insufficient to be considered as a presentation tool"
+  },
+  {
+    "title": "so, you need to build a UI",
+    "note": "tell about the need to build a complete UI"
+  },
+  {
+    "title": "🥁",
+    "emojiOnly": true,
+    "note": "drumroll..."
+  },
+  {
+    "image": "react-logo.png",
+    "note": "react"
+  },
+  {
+    "title": "why react?",
+    "note": "why react?"
+  },
+  {
+    "image": "because.jpg",
+    "imageScale": 1.8,
+    "note": "explain why react"
+  },
+  {
+    "title": "state,props,activeSlide,nextSlide...",
+    "note": "briefly tell about basic functions of presentation app"
+  },
+  {
+    "title": "just regular react stuff",
+    "note": "tell that building app skeleton wasnt hard"
+  },
+  {
+    "title": "how are we going to switch slides?",
+    "note": "Anticipate the need to control the presentation flow"
+  },
+  {
+    "title": "keyboard stuff is trivial",
+    "note": "tell about keyboard support"
+  },
+  {
+    "title": "window.addEventListener('keyup', callback)",
+    "note": "provide and example of keyboard stuff being trivial"
+  },
+  {
+    "title": "clicker is just a keyboard with 2 buttons",
+    "note": "tell about clicker being just a small keyboard"
+  },
+  {
+    "image": "macconahy.jpg",
+    "imageScale": 1.4,
+    "note": "tell about this version of the app being primitive"
+  },
+  {
+    "image": "interstellar.png",
+    "imageScale": 1.7,
+    "note": "somewhere beyond my field of view lies some undiscovered area"
+  },
+  { "title": "how to involve the audience?", "note": "ask a question about involving audience" },
+  { "title": "how to improve the speaker's UX?", "note": "ask a question improving speaker's UX" },
+  { "title": "lets start with the UX", "note": "tell that you've decided to improve the UX first" },
+  {
+    "title": "What is today's most natural tool for communication?",
+    "note":
+      "Ask audience about whats in their opinion is the most wide-spread tool for communication"
+  },
+  {
+    "title": "📱",
+    "emojiOnly": true,
+    "note":
+      "state the fact that mobile phone is indeed the best choice for modern day communication"
+  },
+  {
+    "title": "📱 -> 🎛️ ?",
+    "note": "so how do we turn our phone into a remote?",
+    "emojiOnly": true
+  },
+  {
+    "title": "✋ + 📱 = 🤙",
+    "emojiOnly": true,
+    "note": "tell that swiping would be a great choice to start"
+  },
+  {
+    "image": "cordova.png",
+    "note": "but where to start with touch ? - there is cordova"
+  },
+  {
+    "image": "ionic.svg",
+    "note": "and also there is ionic"
+  },
+  {
+    "image": "mdn.png",
+    "note": "in reality you only need MDN"
+  },
+  {
+    "title": "TouchEvent",
+    "note": "tell about touch event already being the part of modern web api's"
+  },
+  {
+    "title": "const diff = Math.abs(endTouch.x - startTouchEvent.x)",
+    "note": "just determine if start and end events difference should qualify as swipe"
+  },
+  {
+    "title": "shouldSwipe.left ? onSwipeLeft() : onSwipeRight()",
+    "note": "and apply desired callback"
+  },
+  {
+    "title": "but does presentation know about my phone?",
+    "note": "anticipate the introduction of websockets"
+  },
+  {
+    "title": "🕸🔌️",
+    "emojiOnly": true,
+    "note": "because of websockets / what is websockets ?"
+  },
+  {
+    "title": "stateless pub / sub heaven",
+    "note": "tell audience about what websocket is"
+  },
+  {
+    "title": "📱 -> ️💻",
+    "note": "control presentation from the phone",
+    "emojiOnly": true
+  },
+  {
+    "title": "💻 -> ️📱",
+    "note": "and receive feedback",
+    "emojiOnly": true
+  },
+  {
+    "title": "the server itself is 6 lines of code",
+    "note": "tell about server codebase being small"
+  },
+  {
+    "title": "we can integrate as many services as we want",
+    "note":
+      "speak about how any number of services can be connected with this approach / telegram feed"
+  },
+  {
+    "image": "twitter.png",
+    "note": "we can integrate twitter feed"
+  },
+  {
+    "image": "telegram.png",
+    "note": "speak about telegram bot already being intergated with the presentation"
+  },
+  {
+    "title": "one dashboard for unlimited input sources",
+    "note": "dashboard"
+  },
+  {
+    "title": "one more thing",
+    "note": "anticipate one more cool feature"
+  },
+  {
+    "title": "we can also notify the speaker about slide change",
+    "note": "anticipate vibration API"
+  },
+  {
+    "title": "there is an API for that -> navigator.vibrate(ms)",
+    "note": "introduce vibration API"
+  },
+  { "image": "firefox.png", "note": "works only in FF" },
+  {
+    "title": "let's summarize",
+    "note": "summary"
+  },
+  {
+    "title": "result #1: if you know JS - you know enough already",
+    "note": "summary #1"
+  },
+  {
+    "title": "result #2: even with raw JS you're limited only with your imagination",
+    "note": "summary #2"
+  },
+  {
+    "title": "result #3: we explored WebAPI",
+    "note": "summary #3"
+  },
+  {
+    "title": "result #4: we explored WebSockets",
+    "note": "summary #4"
+  },
+  {
+    "title": "result #5: we had fun building a new thing with no prior knowledge",
+    "note": "summary #5"
+  },
+  {
+    "title": "🐙🐱",
+    "note": "invite audience to join the project"
+  },
+  {
+    "title": "demo time!",
+    "note": "demo time"
+  },
+  {
+    "title": "remember @miniq_bot?",
+    "note": "remind the audience about the bot"
+  },
+  {
+    "title": "/nextslide",
+    "note": "/nextslide"
+  },
+  {
+    "title": "/previousslide",
+    "note": "/previousslide"
+  },
+  {
+    "title": "The End",
+    "note": "the last slide"
+  }
+]

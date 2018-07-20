@@ -1,0 +1,35 @@
+{
+  "name": "presenter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/react-fontawesome": "0.0.18",
+    "codemirror": "^5.36.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "qrcode": "^1.2.0",
+    "react": "^16.3.1",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.3.1",
+    "react-fontawesome": "^1.6.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redis": "^2.8.0",
+    "rxjs": "^6.0.0",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0",
+    "styled-components": "^3.2.5"
+  },
+  "scripts": {
+    "start": "node src/utils/ip.js && node src/qr.js && react-scripts start",
+    "ws": "node src/ws-server.js",
+    "chatbot": "node src/bot",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^1.4.33",
+    "prop-types": "^15.6.1"
+  }
+}
