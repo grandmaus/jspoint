@@ -2,9 +2,25 @@ const { networkInterfaces } = require('os');
 const { writeFile } = require('fs');
 const { resolve } = require('path');
 
+/**
+ *
+ * @param {Array} interfaceType
+ * @returns {*}
+ */
+function extractIP(interfaceType) {
+  return interfaceType.find(iface => iface.family.includes('IPv4')).address;
+}
+
 function getCurrentIP() {
   const interfaces = networkInterfaces();
-  return interfaces['Wi-Fi'].find(iface => iface.family.includes('IPv4')).address;
+  const wifi = interfaces['Wi-Fi'];
+  const Ethernet = interfaces['Ethernet'];
+  if (wifi) {
+    return extractIP(wifi)
+  }
+  if (Ethernet) {
+    return extractIP(Ethernet)
+  }
 }
 
 /**

@@ -10,3 +10,5 @@ io.on('connection', function(socket) {
 
 const port = 5678;
 io.listen(port);
+console.log(' -- Successfully started server --');
+console.log(' -- Waiting for broadcasts... --');
