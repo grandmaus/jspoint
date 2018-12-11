@@ -1,1 +1,8 @@
-#TBD
+version: '3'
+services:
+  platform-service:
+    build: platform-service
+    volumes:
+      - ./platform-service:/usr/src/app
+    ports:
+      - 4200:80
