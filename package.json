@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/socket.io": "^1.4.33",
+    "husky": "^1.2.0",
     "prop-types": "^15.6.1"
   }
 }
