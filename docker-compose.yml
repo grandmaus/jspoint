@@ -1,9 +1,9 @@
 version: '3'
 services:
-  kb-service:
-    build: ./kb-service
+  rest-service:
+    build: rest-service
     volumes:
-      - ./kb-service:/usr/src/app
+      - ./rest-service:/usr/src/app
       - /usr/src/app/node_modules
     ports:
       - 3000:8080
@@ -13,4 +13,4 @@ services:
       - ./platform-service:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - 5000:4200
+      - 80:4200
