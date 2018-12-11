@@ -7,10 +7,3 @@ services:
       - /usr/src/app/node_modules
     ports:
       - 3000:8080
-  platform-service:
-    build: platform-service
-    volumes:
-      - ./platform-service:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - 80:4200
