@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "cors": "^2.8.5"
   },
   "keywords": [],
   "author": "",

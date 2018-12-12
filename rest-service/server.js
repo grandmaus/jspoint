@@ -1,30 +1,43 @@
-'use strict';
-
 const express = require('express');
-const mysql = require('mysql');
+const cors = require('cors');
+const graphqlHTTP = require('express-graphql');
+const { buildSchema } = require('graphql');
 
-const PORT = 8080;
+const PORT = 80;
 const HOST = '0.0.0.0';
 
-const connection = mysql.createConnection({
-  host: process.env.db_host,
-  user: process.env.db_user,
-  password: process.env.db_password
-});
-
-connection.connect(err => {
-  if (err) {
-    throw err;
+const schema = buildSchema(`
+  type User {
+    id: ID!,
+    name: String
   }
-});
+  type Query {
+    user(id: ID!): User
+  }
+`);
+
+const fakeDB = {
+  35: {
+    name: 'Paul'
+  }
+};
+
+const rootValue = {
+  user({ id }) {
+    return fakeDB[id];
+  }
+};
 
 const app = express();
 
-app.get('/', (req, res) => {
-  connection.query('show databases;', (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
+app.use(cors());
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    rootValue,
+    graphiql: true
+  })
+);
 
 app.listen(PORT, HOST);
