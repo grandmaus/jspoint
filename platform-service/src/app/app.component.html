@@ -7,7 +7,8 @@
   />
 </div>
 <h2>Here are some links to help you start:</h2>
-
-<h2>Our user:</h2>
+<div *ngIf="user">
+  <h2>Our user: {{ user.name }}</h2>
+</div>
 
 <router-outlet></router-outlet>

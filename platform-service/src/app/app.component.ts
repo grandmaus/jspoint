@@ -8,7 +8,7 @@ import { User } from './user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'platform';
   user: User;
 
@@ -17,13 +17,15 @@ export class AppComponent {
     this.apollo
       .watchQuery({
         query: gql`
-        {
-          user(id: 35) {name}
-        }
-      `
+          {
+            user(id: 35) {
+              name
+            }
+          }
+        `
       })
       .valueChanges.subscribe(result => {
-        console.log(result);
+        this.user = result.data.user;
       });
   }
 }

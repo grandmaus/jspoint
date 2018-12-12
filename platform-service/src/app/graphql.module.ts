@@ -4,7 +4,7 @@ import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 export function createApollo(httpLink: HttpLink) {
-  const uri = 'http://echo-service';
+  const uri = 'http://localhost:3000/graphql';
   return {
     link: httpLink.create({ uri }),
     cache: new InMemoryCache()

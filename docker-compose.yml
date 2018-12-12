@@ -2,14 +2,10 @@ version: '3'
 volumes:
   user_db_data:
 services:
-  echo-service:
-    image: php:apache
-    volumes:
-      - ./echo:/var/www/html
-    ports:
-      - 5000:80
   rest-service:
     build: rest-service
+    ports:
+      - '3000:80'
     volumes:
       - ./rest-service:/usr/src/app
       - /usr/src/app/node_modules
@@ -31,14 +27,3 @@ services:
       MYSQL_DATABASE: user_DB
       MYSQL_USER: user_DB_client
       MYSQL_PASSWORD: REG_PASS
-  platform-service:
-    build: platform-service
-    environment:
-      - BACKEND_URL=rest-service
-    volumes:
-      - ./platform-service:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - 80:4200
-    depends_on:
-      - rest-service
