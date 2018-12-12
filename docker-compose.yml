@@ -1,4 +1,6 @@
 version: '3'
+volumes:
+  user_db_data:
 services:
   rest-service:
     build: rest-service
@@ -7,3 +9,21 @@ services:
       - /usr/src/app/node_modules
     ports:
       - 3000:8080
+    depends_on:
+      - user-db
+    environment:
+      - db_host=user-db
+      - db_user=user_DB_client
+      - db_password=REG_PASS
+  user-db:
+    image: mysql:5.7
+    ports:
+      - '3307:3305'
+    volumes:
+      - user_db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ROOT_PASS
+      MYSQL_DATABASE: user_DB
+      MYSQL_USER: user_DB_client
+      MYSQL_PASSWORD: REG_PASS
