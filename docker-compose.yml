@@ -4,11 +4,11 @@ volumes:
 services:
   rest-service:
     build: rest-service
+    ports:
+      - '3000:80'
     volumes:
       - ./rest-service:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - 3000:8080
     depends_on:
       - user-db
     environment:
