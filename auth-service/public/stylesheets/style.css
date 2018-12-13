@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+nav {
+  padding: 10px;
+  background-color: darkslateblue;
+}
+
+nav a {
+  padding: 0 25px;
+  color: white;
+  font-size: 15px;
+  font-family: 'Tahoma';
+}
+
+#github-login-button {
+  display: inline-block;
+  background-color: #24292e;
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+}
+
+main {
+  padding: 15px;
+}

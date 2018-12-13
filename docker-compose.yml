@@ -2,28 +2,29 @@ version: '3'
 volumes:
   user_db_data:
 services:
+  auth-service:
+    build: auth-service
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./auth-service:/usr/src/app
+      - /usr/src/app/node_modules
   rest-service:
     build: rest-service
     ports:
-      - '3000:80'
+      - '5000:80'
     volumes:
       - ./rest-service:/usr/src/app
       - /usr/src/app/node_modules
-    depends_on:
-      - user-db
     environment:
       - db_host=user-db
       - db_user=user_DB_client
       - db_password=REG_PASS
-  user-db:
-    image: mysql:5.7
+  mongo-service:
+    image: mongo
     ports:
-      - '3307:3305'
+      - 27017:27017
     volumes:
-      - user_db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ROOT_PASS
-      MYSQL_DATABASE: user_DB
-      MYSQL_USER: user_DB_client
-      MYSQL_PASSWORD: REG_PASS
+      - data-volume:/data/db
+volumes:
+  data-volume:
