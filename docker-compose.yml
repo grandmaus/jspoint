@@ -9,6 +9,7 @@ services:
     volumes:
       - ./auth-service:/usr/src/app
       - /usr/src/app/node_modules
+    command: nodemon npm start
   rest-service:
     build: rest-service
     ports:

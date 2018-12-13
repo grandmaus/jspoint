@@ -64,14 +64,16 @@ router.get('/logout', (req, res) => {
 router.get('/user', (req, res) => {
   request.get(
     {
-      url: 'https://api.github.com/user/',
+      url: 'https://api.github.com/user',
       headers: {
         Authorization: 'token ' + req.session.access_token,
         'User-Agent': 'Login-App'
       }
     },
     (error, response, body) => {
-      res.render('user', { user: body });
+      const data = Object.entries(JSON.parse(body));
+      console.log(data);
+      res.render('user', { user: data });
     }
   );
 });

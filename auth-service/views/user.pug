@@ -1,5 +1,7 @@
 extends layout
 
 block content
-    p Welcome to #{user} profile
+    ul
+        each val in user
+            li= val
     a(href='/auth/logout') Logout
