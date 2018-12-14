@@ -1,5 +1,5 @@
 var express = require('express');
-const request = require('request');
+const request = require('request-promise');
 var router = express.Router();
 const qs = require('querystring');
 
@@ -19,23 +19,41 @@ router.all('/redirect', (req, res) => {
   const code = req.query.code;
   const returnedState = req.query.state;
   if (req.session.csrf_string === returnedState) {
-    request.post(
-      {
-        url:
-          'https://github.com/login/oauth/access_token?' +
-          qs.stringify({
-            client_id: credentials.clientID,
-            client_secret: credentials.clientSecret,
-            code: code,
-            redirect_uri: redirect_uri,
-            state: req.session.csrf_string
+    const requestOptions = {
+      url:
+        'https://github.com/login/oauth/access_token?' +
+        qs.stringify({
+          client_id: credentials.clientID,
+          client_secret: credentials.clientSecret,
+          code: code,
+          redirect_uri: redirect_uri,
+          state: req.session.csrf_string
+        })
+    };
+    request
+      .post(requestOptions)
+      .then(response => {
+        req.session.access_token = qs.parse(response).access_token;
+      })
+      .then(() => {
+        request
+          .get({
+            url: 'https://api.github.com/user',
+            headers: {
+              Authorization: 'token ' + req.session.access_token,
+              'User-Agent': 'Login-App'
+            }
           })
-      },
-      (error, response, body) => {
-        req.session.access_token = qs.parse(body).access_token;
-        res.redirect('/user');
-      }
-    );
+          .then(response => {
+            const data = JSON.parse(response);
+            res.cookie('user_name', data.name);
+            res.redirect('/user');
+          });
+      })
+      .catch(err => {
+        res.redirect('/');
+        throw err;
+      });
   } else {
     res.redirect('/');
   }
@@ -48,19 +66,11 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/user', (req, res) => {
-  request.get(
-    {
-      url: 'https://api.github.com/user',
-      headers: {
-        Authorization: 'token ' + req.session.access_token,
-        'User-Agent': 'Login-App'
-      }
-    },
-    (error, response, body) => {
-      const data = Object.entries(JSON.parse(body));
-      res.render('user', { user: data });
-    }
-  );
+  if (!req.session.access_token) {
+    res.redirect('/');
+    return;
+  }
+  res.render('user', { user: { name: req.cookies.user_name } });
 });
 
 module.exports = router;
