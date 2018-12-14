@@ -4,12 +4,19 @@
  */
 class RoutingManager {
   /**
-   * Set of authentication related routes
    * @static
-   * @returns
+   * @returns {String} Root adress
    * @memberof RoutingManager
    */
-  static getAuthenticationRoute() {
+  static getApplicationRoot() {
+    return '/';
+  }
+  /**
+   * Set of authentication related routes
+   * @static
+   * @memberof RoutingManager
+   */
+  static getAuthenticationRoutes() {
     return {
       login: '/login',
       logout: '/logout',

@@ -2,8 +2,8 @@ var express = require('express');
 const randomString = require('randomstring');
 var router = express.Router();
 const qs = require('querystring');
-const Credentials = require('../credentials-manager');
-const Routing = require('./routing-manager');
+const Credentials = require('../config');
+const Routing = require('../config/routes');
 
 router.get('/', (req, res) => {
   req.session.csrf_string = randomString.generate();

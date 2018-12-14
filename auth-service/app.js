@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const sessionCookiesManager = require('./src/session-cookies-manager');
+const sessionCookiesManager = require('./middlewares/session-cookies-manager');
 
 const randomString = require('randomstring');
 
