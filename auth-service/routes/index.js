@@ -72,7 +72,6 @@ router.get('/user', (req, res) => {
     },
     (error, response, body) => {
       const data = Object.entries(JSON.parse(body));
-      console.log(data);
       res.render('user', { user: data });
     }
   );

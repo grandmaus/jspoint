@@ -4,7 +4,7 @@ const router = express.Router();
 /**
  * Login page routing
  */
-router.get(routes.login, (req, res) => {
+router.get('/', (req, res) => {
   res.render('login', { title: 'Please sign in with:' });
 });
 
