@@ -11,6 +11,10 @@ services:
       - ./auth-service:/usr/src/app
       - /usr/src/app/node_modules
     command: nodemon --debug=5858 --legacy-watch --inspect=0.0.0.0:5858
+    environment: 
+      - clientID=b978b2ec529679e70446
+      - clientSecret=a9ab79de3b49391095f6e12b3df065782a8c5b7a
+      - githubOAuthURL=https://github.com/login/oauth/authorize?
   rest-service:
     build: rest-service
     ports:

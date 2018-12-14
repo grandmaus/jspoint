@@ -1,7 +1,6 @@
 var express = require('express');
 const request = require('request');
 var router = express.Router();
-const randomString = require('randomstring');
 const qs = require('querystring');
 
 const redirect_uri = `http://localhost:3000/redirect`;
@@ -14,19 +13,6 @@ const credentials = {
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
-});
-
-router.get('/login', (req, res) => {
-  req.session.csrf_string = randomString.generate();
-  const githubAuthUrl =
-    'https://github.com/login/oauth/authorize?' +
-    qs.stringify({
-      client_id: credentials.clientID,
-      redirect_uri: redirect_uri,
-      state: req.session.csrf_string,
-      scope: ''
-    });
-  res.redirect(githubAuthUrl);
 });
 
 router.all('/redirect', (req, res) => {
