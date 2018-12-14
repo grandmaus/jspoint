@@ -30,6 +30,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 var indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 
+/**
+ *
+ *
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+function myMiddleware(req, res, next) {
+  if (!req.session.access_token && req.cookies.user_name) {
+    res.clearCookie('user_name');
+    res.clearCookie('avatar_url');
+  } else if (req.cookies.user_name) {
+    req.userData = { name: req.cookies.user_name };
+  }
+  next();
+}
+
+app.use(myMiddleware);
+
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 
