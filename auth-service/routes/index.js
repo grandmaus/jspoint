@@ -3,7 +3,6 @@ var router = express.Router();
 const { AuthenticationController, PresentationController } = require('../controllers');
 const { Routes } = require('../config');
 
-/* GET home page. */
 router
   .get(Routes.getApplicationRoot(), PresentationController.getIndexPage)
   .get(Routes.getAuthenticationRoutes().login, AuthenticationController.handleLogin)
