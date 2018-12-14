@@ -1,6 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a#github-login-button(href="/login") Login with Github
+  #wrapper 
+    #login-container
+      #login-buttons
+        img(src='https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', height='120')
+        a#github-login-button(href="/login") Login with Github

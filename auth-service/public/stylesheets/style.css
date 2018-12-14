@@ -1,28 +1,61 @@
+* {
+  font-family: 'Staatliches', cursive;
+}
 body {
   margin: 0;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 nav {
-  padding: 10px;
-  background-color: darkslateblue;
+  display: flex;
+  background-color: #24292e;
+}
+
+nav .nav-section {
+  padding: 10px 25px;
+}
+
+nav .nav-section:hover {
+  background-color: black;
 }
 
 nav a {
-  padding: 0 25px;
   color: white;
-  font-size: 15px;
-  font-family: 'Tahoma';
+  font-size: 30px;
+  text-decoration: none;
 }
 
 #github-login-button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   background-color: #24292e;
   color: white;
   text-decoration: none;
+  font-size: 25px;
   padding: 20px;
 }
 
 main {
   padding: 15px;
+  flex: 1;
+}
+
+#login-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-buttons {
+  display: flex;
+  border: 3px solid #24292e;
 }

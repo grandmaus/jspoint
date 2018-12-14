@@ -2,11 +2,14 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Staatliches')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav
-      a(href="/") Main
-      a(href="/user") Dashboard
-      a(href="/logout") Logout
-    main  
-      block content
+      .nav-section
+        a(href="/") Main
+      .nav-section
+        a(href="/user") Dashboard
+      .nav-section
+        a(href="/logout") Logout
+    block content
