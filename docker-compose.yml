@@ -6,10 +6,11 @@ services:
     build: auth-service
     ports:
       - '3000:3000'
+      - 5858:5858
     volumes:
       - ./auth-service:/usr/src/app
       - /usr/src/app/node_modules
-    command: nodemon npm start
+    command: nodemon --debug=5858 --legacy-watch --inspect=0.0.0.0:5858
   rest-service:
     build: rest-service
     ports:
