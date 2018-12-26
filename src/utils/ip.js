@@ -15,11 +15,16 @@ function getCurrentIP() {
   const interfaces = networkInterfaces();
   const wifi = interfaces['Wi-Fi'];
   const Ethernet = interfaces['Ethernet'];
+  const wirelessNetwork = interfaces['Беспроводная сеть'];
+
   if (wifi) {
     return extractIP(wifi)
   }
   if (Ethernet) {
     return extractIP(Ethernet)
+  }
+  if (wirelessNetwork) {
+    return extractIP(wirelessNetwork)
   }
 }
 
